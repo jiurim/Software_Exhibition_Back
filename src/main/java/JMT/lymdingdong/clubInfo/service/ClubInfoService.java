@@ -21,6 +21,7 @@ public class ClubInfoService {
         }
         return ClubInfoDTO.builder()
                 .category(clubInfoEntity.getCategory())
+                .clubName(clubInfoEntity.getClubName())
                 .activityDescription(clubInfoEntity.getActivityDescription())
                 .activitySchedule(clubInfoEntity.getActivitySchedule())
                 .membershipFee(clubInfoEntity.getMembershipFee())

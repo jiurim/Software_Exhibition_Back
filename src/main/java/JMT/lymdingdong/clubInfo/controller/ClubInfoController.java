@@ -13,16 +13,16 @@ public class ClubInfoController {
     @Autowired
     private ClubInfoService clubInfoService;
 
-    @GetMapping("/getSlideContent/{category}/{slideKey}")
-    public ResponseEntity<?> getSlideContent(@PathVariable String category, @PathVariable String slideKey) {
+    @GetMapping("/getSlideContent/{clubName}")
+    public ResponseEntity<ClubInfoDTO> getSlideContent(@PathVariable String clubName) {
         try {
-            int key = Integer.parseInt(slideKey);
-            ClubInfoDTO clubInfo = clubInfoService.getClubInfoByCategoryAndSlideKey(category, key);
+            ClubInfoDTO clubInfo = clubInfoService.getClubInfoByClubName(clubName);
             return new ResponseEntity<>(clubInfo, HttpStatus.OK);
-        } catch (NumberFormatException e) {
-            return new ResponseEntity<>("Invalid slide key format", HttpStatus.BAD_REQUEST);
         } catch (IllegalArgumentException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 }

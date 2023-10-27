@@ -14,20 +14,17 @@ public class ClubInfoService {
     @Autowired
     private ClubInfoRepository clubInfoRepository;
 
-    public ClubInfoDTO getClubInfoByCategoryAndSlideKey(String category, int slideKey) {
-        List<ClubInfoEntity> clubInfos = clubInfoRepository.findByCategory(category);
-
-        if (slideKey < 0 || slideKey > clubInfos.size()) {
-            throw new IllegalArgumentException("잘못된 슬라이드 번호입니다.");
+    public ClubInfoDTO getClubInfoByClubName(String clubName) {
+        ClubInfoEntity clubInfoEntity = clubInfoRepository.findByClubName(clubName);
+        if (clubInfoEntity == null) {
+            throw new IllegalArgumentException("클럽을 찾을 수 없습니다.");
         }
-
-        ClubInfoEntity clubInfoEntity = clubInfos.get(slideKey);
         return ClubInfoDTO.builder()
                 .category(clubInfoEntity.getCategory())
                 .activityDescription(clubInfoEntity.getActivityDescription())
                 .activitySchedule(clubInfoEntity.getActivitySchedule())
                 .membershipFee(clubInfoEntity.getMembershipFee())
-                .clubLocation((clubInfoEntity.getClubLocation()))
+                .clubLocation(clubInfoEntity.getClubLocation())
                 .photoUrl(clubInfoEntity.getPhotoUrl())
                 .build();
     }

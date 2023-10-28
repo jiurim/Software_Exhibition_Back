@@ -10,6 +10,7 @@ import lombok.Builder;
 public class ClubInfoDTO {
 
     private String category;
+    private String clubName;
     private String activityDescription;
     private String activitySchedule;
     private String membershipFee;

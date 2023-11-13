@@ -25,9 +25,12 @@ public class SecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) //세션 사용안함
                 .and()
                 .authorizeRequests()
-                .antMatchers("/user/login").permitAll() //해당 API에 대해서 모든 요청을 허가
-                .antMatchers("/user/check").hasRole("USER") // User 권한이 있어야 요청할 수 있다
-                .anyRequest().authenticated()
+                .antMatchers("/Admin/**").hasRole("USER") // User 권한이 있어야 요청할 수 있다
+                .anyRequest().permitAll()
+                .and()
+                .formLogin()
+                    .loginPage("/login")
+                    .permitAll()
                 .and()
                 .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
         return http.build();

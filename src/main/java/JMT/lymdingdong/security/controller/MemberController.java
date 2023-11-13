@@ -19,6 +19,7 @@ public class MemberController {
 
     @PostMapping("/login")
     public TokenInfo login(@RequestBody MemberLoginRequestDto memberLoginRequestDto){
+        log.info("Wow"); //이게 찍히면 컨트롤러는 간다는 뜻
         String memberId = memberLoginRequestDto.getMemberId();
         String password = memberLoginRequestDto.getPassword();
         TokenInfo tokenInfo = memberService.login(memberId,password);

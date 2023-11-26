@@ -6,8 +6,6 @@ import JMT.lymdingdong.clubInfo.repository.ClubInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class ClubInfoService {
 
@@ -26,7 +24,9 @@ public class ClubInfoService {
                 .activitySchedule(clubInfoEntity.getActivitySchedule())
                 .membershipFee(clubInfoEntity.getMembershipFee())
                 .clubLocation(clubInfoEntity.getClubLocation())
-                .photoUrl(clubInfoEntity.getPhotoUrl())
+                .photoUrl(clubInfoEntity.getPhotoUrl1())
+                .photoUrl(clubInfoEntity.getPhotoUrl2())
+                .photoUrl(clubInfoEntity.getPhotoUrl3())
                 .build();
     }
 }

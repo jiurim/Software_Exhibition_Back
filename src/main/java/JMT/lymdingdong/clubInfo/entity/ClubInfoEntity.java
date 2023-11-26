@@ -19,25 +19,31 @@ public class ClubInfoEntity {
     @Id
     private int Id;
 
-    @Column(name = "분과")
+    @Column(name = "department")
     private String category;
 
-    @Column(name = "동아리명")
+    @Column(name = "club_name")
     private String clubName;
 
-    @Column(name = "활동내용")
+    @Column(name = "substance")
     private String activityDescription;
 
-    @Column(name = "활동시기")
+    @Column(name = "period")
     private String activitySchedule;
 
-    @Column(name = "회비")
+    @Column(name = "membership_fee")
     private String membershipFee;
 
-    @Column(name = "동아리방위치")
+    @Column(name = "location")
     private String clubLocation;
 
-    @Column(name = "활동사진링크")
-    private String photoUrl;
+    @Column(name = "club_image1")
+    private String photoUrl1;
+
+    @Column(name = "club_image2")
+    private String photoUrl2;
+
+    @Column(name = "club_image3")
+    private String photoUrl3;
 
 }

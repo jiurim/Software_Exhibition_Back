@@ -24,9 +24,9 @@ public class ClubInfoService {
                 .activitySchedule(clubInfoEntity.getActivitySchedule())
                 .membershipFee(clubInfoEntity.getMembershipFee())
                 .clubLocation(clubInfoEntity.getClubLocation())
-                .photoUrl(clubInfoEntity.getPhotoUrl1())
-                .photoUrl(clubInfoEntity.getPhotoUrl2())
-                .photoUrl(clubInfoEntity.getPhotoUrl3())
+                .photoUrl1(clubInfoEntity.getPhotoUrl1())
+                .photoUrl2(clubInfoEntity.getPhotoUrl2())
+                .photoUrl3(clubInfoEntity.getPhotoUrl3())
                 .build();
     }
 }

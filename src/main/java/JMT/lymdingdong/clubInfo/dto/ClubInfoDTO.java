@@ -15,5 +15,7 @@ public class ClubInfoDTO {
     private String activitySchedule;
     private String membershipFee;
     private String clubLocation;
-    private String photoUrl;
+    private String photoUrl1;
+    private String photoUrl2;
+    private String photoUrl3;
 }
